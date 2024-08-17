@@ -10,7 +10,8 @@
             var Module = {
                 canvas: (function() { return document.getElementById('canvas'); })()
             };
-
+        </script>
+        <script src="index.js">
             let audioContext;
 
             // Function to create or resume the AudioContext
@@ -27,9 +28,8 @@
 
             // Attach event listeners to ensure audio context is only initialized after user interaction
             document.addEventListener('click', initializeAudioContext);
-            document.addEventListener('keydown', initializeAudioContext);
+            document.addEventListener('keydown', initializeAudioContext);            
         </script>
-        <script src="index.js"></script>
         <p>🕹 Use the arrow keys to move the dog and space to jump.</p>
     </body>
 </html>
