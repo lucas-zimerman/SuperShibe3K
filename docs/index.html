@@ -2,14 +2,47 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Canvas Game</title>
+        <style>
+            body {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }
+            #canvas {
+                border: 1px solid #000;
+            }
+            p {
+                position: absolute;
+                bottom: 10px;
+                font-family: Arial, sans-serif;
+            }
+        </style>
     </head>
     <body>
-        <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+        <canvas id="canvas" width="800" height="600" oncontextmenu="event.preventDefault()"></canvas>
         <script type='text/javascript'>
             var Module = {
                 canvas: (function() { return document.getElementById('canvas'); })()
             };
+
+            document.addEventListener('click', () => {
+                // Assuming you have some audio logic that needs to be triggered
+                if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                    var audioContext = new (AudioContext || webkitAudioContext)();
+                    // Example: Resume the audio context here
+                    if (audioContext.state === 'suspended') {
+                        audioContext.resume();
+                    }
+                    console.log('AudioContext is running:', audioContext.state);
+                }
+            });
+
         </script>
         <script src="index.js"></script>
         <p>🕹 Use the arrow keys to move the dog and space to jump.</p>
